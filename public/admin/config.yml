@@ -2,6 +2,7 @@ backend:
   name: github
   repo: jmpazblanes-art/rincones-bari
   branch: master
+  base_url: https://sveltia-cms-auth.pages.dev
 
 # Donde se suben las imágenes
 media_folder: public/images/uploads
