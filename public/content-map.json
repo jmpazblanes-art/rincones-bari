@@ -1,0 +1,190 @@
+{
+  "site": {
+    "name": "Rincones Bari",
+    "tagline": "Calma, belleza y estilo en cada detalle",
+    "description": "Un espacio creado para inspirarte a transformar tu hogar en un refugio de calma y belleza. Ideas de decoración con alma, propuestas sencillas pero llenas de estilo.",
+    "url": "https://www.rinconesbari.com",
+    "locale": "es_ES"
+  },
+  "branding": {
+    "colors": {
+      "blanco_lino": "#F8F6F3",
+      "beige_arena": "#E5D8C9",
+      "gris_perla": "#C9C7C2",
+      "taupe_dorado": "#B6A184",
+      "negro_humo": "#3A3A3A",
+      "verde_eucalipto": "#8A9A91"
+    },
+    "fonts": {
+      "titulares": "Playfair Display",
+      "subtitulos": "Lora",
+      "acento_logo": "Allura",
+      "ui_botones": "Montserrat"
+    },
+    "assets": {
+      "logo": "/brand/rincones-bari-logo.png",
+      "hero_images": [
+        "/brand/rincones-bari-hero-01.png",
+        "/brand/rincones-bari-hero-02.png",
+        "/brand/rincones-bari-hero-03.png"
+      ]
+    }
+  },
+  "categories": [
+    {
+      "slug": "salon",
+      "title": "Salón",
+      "title_seo": "Ideas de decoración para salón moderno",
+      "description": "Espacios de estar que combinan funcionalidad y elegancia. Salones modernos con alma, donde cada rincón invita a quedarse.",
+      "meta_description": "Inspírate con las mejores ideas de decoración para salón moderno. Estilos contemporáneos, acogedores y atemporales para tu hogar.",
+      "image_count": 11,
+      "images": [
+        { "file": "/images/salon/salon-decoracion-moderno-01.png", "alt": "Salón moderno decoración contemporánea con tonos neutros" },
+        { "file": "/images/salon/salon-decoracion-moderno-02.png", "alt": "Salón comedor decoración elegante estilo nórdico" },
+        { "file": "/images/salon/salon-decoracion-moderno-03.png", "alt": "Salón con sofá gris y detalles en madera natural" },
+        { "file": "/images/salon/salon-decoracion-moderno-04.png", "alt": "Salón luminoso decoración minimalista cálida" },
+        { "file": "/images/salon/salon-decoracion-moderno-05.png", "alt": "Salón abierto integrado con cocina decoración moderna" },
+        { "file": "/images/salon/salon-decoracion-moderno-06.png", "alt": "Rincón de lectura salón decoración acogedora" },
+        { "file": "/images/salon/salon-decoracion-moderno-07.png", "alt": "Salón con chimenea decoración clásica contemporánea" },
+        { "file": "/images/salon/salon-decoracion-moderno-08.png", "alt": "Salón pequeño decoración para maximizar el espacio" },
+        { "file": "/images/salon/salon-decoracion-moderno-09.png", "alt": "Salón con estantería integrada decoración funcional" },
+        { "file": "/images/salon/salon-decoracion-moderno-10.png", "alt": "Salón con plantas decoración natural y orgánica" },
+        { "file": "/images/salon/salon-decoracion-moderno-11.png", "alt": "Salón decoración mediterránea con luz natural" }
+      ],
+      "videos": [
+        "/video/rincones-bari-salon-video-01.mp4",
+        "/video/rincones-bari-salon-video-02.mp4",
+        "/video/rincones-bari-salon-video-03.mp4",
+        "/video/rincones-bari-salon-video-04.mp4"
+      ]
+    },
+    {
+      "slug": "cocinas",
+      "title": "Cocinas",
+      "title_seo": "Cocinas modernas decoración e ideas",
+      "description": "Cocinas que enamoran. Diseños funcionales con carácter, donde cocinar se convierte en un placer estético.",
+      "meta_description": "Descubre las mejores ideas para decorar tu cocina moderna. Diseños funcionales, elegantes y llenos de personalidad.",
+      "image_count": 8,
+      "images": [
+        { "file": "/images/cocinas/cocina-moderna-decoracion-interior-01.png", "alt": "Cocina moderna decoración en blanco y madera" },
+        { "file": "/images/cocinas/cocina-moderna-decoracion-interior-02.png", "alt": "Cocina abierta integrada salón decoración contemporánea" },
+        { "file": "/images/cocinas/cocina-moderna-decoracion-interior-03.png", "alt": "Cocina industrial con isla central decoración urbana" },
+        { "file": "/images/cocinas/cocina-moderna-decoracion-interior-04.png", "alt": "Cocina nórdica decoración minimalista funcional" },
+        { "file": "/images/cocinas/cocina-moderna-decoracion-interior-05.png", "alt": "Cocina con mármol y accesorios dorados decoración lujo" },
+        { "file": "/images/cocinas/cocina-moderna-decoracion-interior-06.png", "alt": "Cocina pequeña bien aprovechada decoración inteligente" },
+        { "file": "/images/cocinas/cocina-moderna-decoracion-interior-07.png", "alt": "Cocina rústica moderna con tonos cálidos decoración" },
+        { "file": "/images/cocinas/cocina-moderna-decoracion-interior-08.png", "alt": "Cocina con office decoración familiar y acogedora" }
+      ],
+      "videos": [
+        "/video/rincones-bari-cocina-video-05.mp4",
+        "/video/rincones-bari-cocina-video-06.mp4"
+      ]
+    },
+    {
+      "slug": "banos",
+      "title": "Baños",
+      "title_seo": "Baños modernos decoración e ideas originales",
+      "description": "El baño como santuario personal. Espacios cuidados al detalle donde la calma y el bienestar son protagonistas.",
+      "meta_description": "Ideas para decorar tu baño moderno con estilo. Diseños elegantes, funcionales y con personalidad para tu hogar.",
+      "image_count": 7,
+      "images": [
+        { "file": "/images/banos/bano-moderno-decoracion-interior-01.png", "alt": "Baño moderno con azulejos en tonos neutros decoración spa" },
+        { "file": "/images/banos/bano-moderno-decoracion-interior-02.png", "alt": "Baño nórdico con madera y blanco decoración minimalista" },
+        { "file": "/images/banos/bano-moderno-decoracion-interior-03.png", "alt": "Baño con bañera exenta decoración de lujo" },
+        { "file": "/images/banos/bano-moderno-decoracion-interior-04.png", "alt": "Baño pequeño bien aprovechado decoración inteligente" },
+        { "file": "/images/banos/bano-moderno-decoracion-interior-05.png", "alt": "Baño con ducha de obra decoración contemporánea" },
+        { "file": "/images/banos/bano-moderno-decoracion-interior-06.png", "alt": "Baño rústico con piedra y madera decoración natural" },
+        { "file": "/images/banos/bano-moderno-decoracion-interior-07.png", "alt": "Baño doble con mueble flotante decoración elegante" }
+      ]
+    },
+    {
+      "slug": "habitaciones",
+      "title": "Habitaciones",
+      "title_seo": "Habitaciones decoración ideas para dormitorios",
+      "description": "Dormitorios que invitan al descanso y al sueño. Ambientes pensados para que cada mañana empieces bien.",
+      "meta_description": "Descubre ideas para decorar tu habitación con estilo. Dormitorios modernos, acogedores y atemporales.",
+      "image_count": 15,
+      "images": [
+        { "file": "/images/habitaciones/habitacion-decoracion-interior-01.png", "alt": "Habitación matrimonial decoración moderna con ropa de cama en lino" },
+        { "file": "/images/habitaciones/habitacion-decoracion-interior-02.png", "alt": "Dormitorio nórdico decoración minimalista cálida" },
+        { "file": "/images/habitaciones/habitacion-decoracion-interior-03.png", "alt": "Habitación juvenil decoración contemporánea" },
+        { "file": "/images/habitaciones/habitacion-decoracion-interior-04.png", "alt": "Dormitorio con cabecero tapizado decoración elegante" },
+        { "file": "/images/habitaciones/habitacion-decoracion-interior-05.png", "alt": "Habitación con terraza decoración mediterránea" },
+        { "file": "/images/habitaciones/habitacion-decoracion-interior-06.png", "alt": "Dormitorio pequeño decoración para aprovechar el espacio" },
+        { "file": "/images/habitaciones/habitacion-decoracion-interior-07.png", "alt": "Habitación con estudio integrado decoración multifuncional" },
+        { "file": "/images/habitaciones/habitacion-decoracion-interior-08.png", "alt": "Dormitorio en tonos tierra decoración rústica moderna" },
+        { "file": "/images/habitaciones/habitacion-decoracion-interior-09.png", "alt": "Habitación con dosel decoración romántica atemporal" },
+        { "file": "/images/habitaciones/habitacion-decoracion-interior-10.png", "alt": "Dormitorio infantil decoración funcional y alegre" },
+        { "file": "/images/habitaciones/habitacion-decoracion-interior-11.png", "alt": "Habitación con vestidor integrado decoración organizada" },
+        { "file": "/images/habitaciones/habitacion-decoracion-interior-12.png", "alt": "Dormitorio luminoso decoración en blanco y beige" },
+        { "file": "/images/habitaciones/habitacion-decoracion-interior-13.png", "alt": "Habitación de invitados decoración acogedora y cálida" },
+        { "file": "/images/habitaciones/habitacion-decoracion-interior-14.png", "alt": "Dormitorio con cabecero de madera decoración natural" },
+        { "file": "/images/habitaciones/habitacion-decoracion-interior-15.png", "alt": "Habitación principal decoración de lujo accesible" }
+      ]
+    },
+    {
+      "slug": "patios",
+      "title": "Patios y Exteriores",
+      "title_seo": "Patios y jardines decoración exterior ideas",
+      "description": "Exteriores con alma. Patios, porches y jardines pensados para disfrutar del aire libre sin renunciar al estilo.",
+      "meta_description": "Ideas para decorar tu patio, jardín o terraza con estilo. Exteriores modernos, mediterráneos y llenos de carácter.",
+      "image_count": 4,
+      "images": [
+        { "file": "/images/patios/patio-exterior-decoracion-jardin-01.png", "alt": "Patio moderno con muebles de exterior decoración mediterránea" },
+        { "file": "/images/patios/patio-exterior-decoracion-jardin-02.png", "alt": "Jardín decoración exterior con plantas y textiles naturales" },
+        { "file": "/images/patios/patio-exterior-decoracion-jardin-03.png", "alt": "Patio con porche decoración exterior acogedora" },
+        { "file": "/images/patios/patio-exterior-decoracion-jardin-04.png", "alt": "Terraza decoración exterior contemporánea con plantas" }
+      ]
+    },
+    {
+      "slug": "vestidor",
+      "title": "Vestidores",
+      "title_seo": "Vestidores decoración e ideas de organización",
+      "description": "Vestidores que son un placer a la vista. Organización con estética, porque tu ropa merece un buen hogar.",
+      "meta_description": "Ideas para decorar y organizar tu vestidor con estilo. Diseños funcionales y elegantes para cualquier espacio.",
+      "image_count": 4,
+      "images": [
+        { "file": "/images/vestidor/vestidor-decoracion-organizado-01.png", "alt": "Vestidor moderno organizado decoración elegante en blanco" },
+        { "file": "/images/vestidor/vestidor-decoracion-organizado-02.png", "alt": "Vestidor de madera decoración cálida y funcional" },
+        { "file": "/images/vestidor/vestidor-decoracion-organizado-03.png", "alt": "Vestidor pequeño aprovechado al máximo decoración inteligente" },
+        { "file": "/images/vestidor/vestidor-decoracion-organizado-04.png", "alt": "Vestidor con isla central decoración de lujo" }
+      ]
+    },
+    {
+      "slug": "despacho",
+      "title": "Despacho y Estudio",
+      "title_seo": "Despachos y estudios en casa decoración e ideas",
+      "description": "Espacios de trabajo donde la concentración y el bienestar van de la mano. Porque trabajar desde casa también puede ser bonito.",
+      "meta_description": "Ideas para decorar tu despacho o estudio en casa. Espacios de trabajo modernos, funcionales y con personalidad.",
+      "image_count": 3,
+      "images": [
+        { "file": "/images/despacho/despacho-estudio-decoracion-moderna-01.png", "alt": "Despacho en casa moderno decoración funcional y elegante" },
+        { "file": "/images/despacho/despacho-estudio-decoracion-moderna-02.png", "alt": "Estudio decoración minimalista con luz natural" },
+        { "file": "/images/despacho/despacho-estudio-decoracion-moderna-03.png", "alt": "Despacho nórdico con estantería decoración organizada" }
+      ]
+    },
+    {
+      "slug": "recibidores",
+      "title": "Recibidores y Entradas",
+      "title_seo": "Recibidores y entradas decoración ideas originales",
+      "description": "La primera impresión importa. Entradas y pasillos que dan la bienvenida con personalidad y estilo.",
+      "meta_description": "Ideas para decorar el recibidor y la entrada de tu casa. Diseños acogedores que hacen que cada llegada a casa sea especial.",
+      "image_count": 4,
+      "images": [
+        { "file": "/images/recibidores/recibidor-entrada-decoracion-moderna-01.png", "alt": "Recibidor moderno con mueble de entrada y espejo decoración elegante" },
+        { "file": "/images/recibidores/recibidor-entrada-decoracion-moderna-02.png", "alt": "Entrada de casa decoración nórdica con perchero de madera" },
+        { "file": "/images/recibidores/recibidor-entrada-decoracion-moderna-03.png", "alt": "Pasillo estrecho decoración para dar amplitud con espejos" },
+        { "file": "/images/recibidores/recibidor-entrada-decoracion-moderna-04.png", "alt": "Recibidor pequeño bien decorado maximizando el espacio" }
+      ]
+    }
+  ],
+  "affiliate": {
+    "program": "Amazon Afiliados España",
+    "tag": "TU_TAG_AQUI",
+    "note": "Sustituir TU_TAG_AQUI por el tag real de Amazon Afiliados una vez dado de alta"
+  },
+  "pinterest": {
+    "account": "pending",
+    "board_prefix": "Rincones Bari -"
+  }
+}

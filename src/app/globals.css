@@ -1,0 +1,316 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Colors — El Mueble editorial */
+  --color-primary: #6d5c43;
+  --color-primary-container: #b6a184;
+  --color-primary-fixed: #f7dfbf;
+  --color-primary-fixed-dim: #dac3a5;
+  --color-secondary: #53625a;
+  --color-secondary-container: #d3e4d9;
+  --color-tertiary: #665d51;
+  --color-tertiary-container: #aea294;
+  --color-background: #ffffff;
+  --color-surface: #fafafa;
+  --color-surface-bright: #ffffff;
+  --color-surface-container-low: #f7f7f7;
+  --color-surface-container: #f2f2f2;
+  --color-surface-container-high: #eeeeee;
+  --color-surface-container-highest: #e8e8e8;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-dim: #e0e0e0;
+  --color-on-surface: #1a1a1a;
+  --color-on-surface-variant: #6b6b6b;
+  --color-on-background: #1a1a1a;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #463821;
+  --color-outline: #999999;
+  --color-outline-variant: #e5e5e5;
+  --color-inverse-surface: #1a1a1a;
+  --color-inverse-on-surface: #f5f5f5;
+  --color-amazon-green: #8A9A91;
+  --color-eucalyptus: #8A9A91;
+  --color-beige-arena: #E5D8C9;
+  --color-negro-humo: #1a1a1a;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
+  /* Fonts */
+  --font-headline: var(--font-newsreader), serif;
+  --font-body: var(--font-noto-serif), serif;
+  --font-label: var(--font-plus-jakarta), sans-serif;
+  --font-allura: var(--font-allura-font), cursive;
+  --font-serif-display: var(--font-playfair), serif;
+  --font-serif-accent: var(--font-lora), serif;
+  --font-montserrat: var(--font-montserrat-font), sans-serif;
+
+  /* Border radius — minimal, editorial */
+  --radius-sm: 0px;
+  --radius-DEFAULT: 0px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  --radius-xl: 2px;
+  --radius-full: 2px;
+
+  /* Animation timing */
+  --ease-editorial: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ═══════════════════════════════════════════════════════
+   SCROLL-DRIVEN REVEAL ANIMATIONS
+   ═══════════════════════════════════════════════════════ */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slowZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+@keyframes lineDraw {
+  from { width: 0; }
+  to { width: 40px; }
+}
+
+@keyframes counterFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reveal utility classes — JS adds .animate then .visible via IntersectionObserver
+   Without JS, content is fully visible (progressive enhancement) */
+.reveal.animate { opacity: 0; transform: translateY(40px); transition: opacity 0.8s var(--ease-editorial), transform 0.8s var(--ease-editorial); }
+.reveal.animate.visible { opacity: 1; transform: translateY(0); }
+
+.reveal-left.animate { opacity: 0; transform: translateX(-60px); transition: opacity 0.8s var(--ease-editorial), transform 0.8s var(--ease-editorial); }
+.reveal-left.animate.visible { opacity: 1; transform: translateX(0); }
+
+.reveal-right.animate { opacity: 0; transform: translateX(60px); transition: opacity 0.8s var(--ease-editorial), transform 0.8s var(--ease-editorial); }
+.reveal-right.animate.visible { opacity: 1; transform: translateX(0); }
+
+.reveal-scale.animate { opacity: 0; transform: scale(0.92); transition: opacity 0.8s var(--ease-editorial), transform 0.8s var(--ease-editorial); }
+.reveal-scale.animate.visible { opacity: 1; transform: scale(1); }
+
+/* Stagger children reveals */
+.reveal-stagger.animate > * { opacity: 0; transform: translateY(30px); transition: opacity 0.6s var(--ease-editorial), transform 0.6s var(--ease-editorial); }
+.reveal-stagger.animate.visible > *:nth-child(1) { transition-delay: 0ms; opacity: 1; transform: translateY(0); }
+.reveal-stagger.animate.visible > *:nth-child(2) { transition-delay: 100ms; opacity: 1; transform: translateY(0); }
+.reveal-stagger.animate.visible > *:nth-child(3) { transition-delay: 200ms; opacity: 1; transform: translateY(0); }
+.reveal-stagger.animate.visible > *:nth-child(4) { transition-delay: 300ms; opacity: 1; transform: translateY(0); }
+.reveal-stagger.animate.visible > *:nth-child(5) { transition-delay: 400ms; opacity: 1; transform: translateY(0); }
+.reveal-stagger.animate.visible > *:nth-child(6) { transition-delay: 500ms; opacity: 1; transform: translateY(0); }
+.reveal-stagger.animate.visible > *:nth-child(7) { transition-delay: 600ms; opacity: 1; transform: translateY(0); }
+.reveal-stagger.animate.visible > *:nth-child(8) { transition-delay: 700ms; opacity: 1; transform: translateY(0); }
+
+/* ═══════════════════════════════════════════════════════
+   PARALLAX EFFECT
+   ═══════════════════════════════════════════════════════ */
+.parallax-container {
+  overflow: hidden;
+  position: relative;
+}
+.parallax-image {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* ═══════════════════════════════════════════════════════
+   EDITORIAL COMPONENTS
+   ═══════════════════════════════════════════════════════ */
+
+/* Material Symbols support */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Decorative thin line */
+.line-decorative {
+  width: 40px;
+  height: 1px;
+  background-color: #6d5c43;
+  margin: 0 auto;
+}
+
+/* Animated line that draws on reveal */
+.line-draw {
+  height: 1px;
+  background-color: #6d5c43;
+  margin: 0 auto;
+  width: 0;
+  transition: width 0.8s var(--ease-editorial) 0.3s;
+}
+.visible .line-draw,
+.line-draw.visible {
+  width: 40px;
+}
+
+/* Drop cap for blog posts */
+.drop-cap::first-letter {
+  float: left;
+  font-family: var(--font-serif-display);
+  font-size: 5rem;
+  line-height: 0.85;
+  padding-right: 12px;
+  padding-top: 4px;
+  color: #6d5c43;
+}
+
+/* Masonry grid */
+.masonry-grid {
+  column-count: 1;
+  column-gap: 2rem;
+}
+@media (min-width: 1024px) {
+  .masonry-grid {
+    column-count: 2;
+  }
+}
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 3rem;
+}
+
+/* ═══════════════════════════════════════════════════════
+   IMAGE HOVER EFFECTS — editorial, not gimmicky
+   ═══════════════════════════════════════════════════════ */
+
+/* Smooth image transitions */
+img {
+  transition: transform 0.7s var(--ease-editorial);
+}
+
+/* Editorial card hover — image lifts subtly */
+.editorial-card {
+  position: relative;
+  overflow: hidden;
+}
+.editorial-card img {
+  transition: transform 0.7s var(--ease-editorial);
+}
+.editorial-card:hover img {
+  transform: scale(1.03);
+}
+
+/* Magnetic cursor effect indicator */
+.editorial-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.03));
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+.editorial-card:hover::after {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION SEPARATOR — the thin editorial line
+   ═══════════════════════════════════════════════════════ */
+.section-separator {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #e5e5e5 20%, #e5e5e5 80%, transparent);
+}
+
+/* ═══════════════════════════════════════════════════════
+   SELECTION & SCROLLBAR
+   ═══════════════════════════════════════════════════════ */
+::selection {
+  background-color: rgba(109, 92, 67, 0.15);
+}
+
+/* Minimal scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SMOOTH SCROLL
+   ═══════════════════════════════════════════════════════ */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ═══════════════════════════════════════════════════════
+   HERO COUNTER ANIMATION
+   ═══════════════════════════════════════════════════════ */
+.hero-stat {
+  opacity: 0;
+  animation: counterFadeUp 0.6s var(--ease-editorial) forwards;
+}
+.hero-stat:nth-child(1) { animation-delay: 0.8s; }
+.hero-stat:nth-child(2) { animation-delay: 1s; }
+.hero-stat:nth-child(3) { animation-delay: 1.2s; }
