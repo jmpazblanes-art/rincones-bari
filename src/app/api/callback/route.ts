@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 
-// GitHub OAuth callback — intercambia el code por un token y lo devuelve al CMS
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const code = searchParams.get("code");
@@ -19,40 +18,31 @@ export async function GET(request: NextRequest) {
   try {
     const tokenResponse = await fetch("https://github.com/login/oauth/access_token", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify({ client_id: clientId, client_secret: clientSecret, code }),
     });
 
     const tokenData = await tokenResponse.json();
-
     if (tokenData.error) {
       return NextResponse.json({ error: tokenData.error_description }, { status: 400 });
     }
 
     const token = tokenData.access_token;
-    const provider = "github";
+    const message = "authorization:github:success:" + JSON.stringify({ token, provider: "github" });
 
-    // Decap CMS espera este formato exacto en el postMessage
-    const script = `
-      <script>
-        (function() {
-          function receiveMessage(e) {
-            console.log("receiveMessage %o", e);
-            window.opener.postMessage(
-              'authorization:${provider}:success:${JSON.stringify({ token, provider })}',
-              e.origin
-            );
-          }
-          window.addEventListener("message", receiveMessage, false);
-          window.opener.postMessage("authorizing:${provider}", "*");
-        })()
-      </script>
-    `;
+    const html = [
+      "<!DOCTYPE html><html><body><script>",
+      "(function(){",
+      "  function receiveMessage(e){",
+      "    window.opener.postMessage(" + JSON.stringify(message) + ", e.origin);",
+      "  }",
+      "  window.addEventListener('message', receiveMessage, false);",
+      "  window.opener.postMessage('authorizing:github', '*');",
+      "})();",
+      "</script></body></html>",
+    ].join("\n");
 
-    return new NextResponse(script, {
+    return new NextResponse(html, {
       headers: { "Content-Type": "text/html" },
     });
   } catch {
