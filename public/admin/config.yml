@@ -2,9 +2,6 @@ backend:
   name: github
   repo: jmpazblanes-art/rincones-bari
   branch: master
-  auth_scope: repo
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
 
 # Donde se suben las imágenes
 media_folder: public/images/uploads
