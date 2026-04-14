@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 
-// GitHub OAuth — redirige al login de GitHub
+// Decap CMS llama a este endpoint con ?provider=github
+// También puede llamarlo sin provider (asumimos github)
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  // Note: request.url is sync, only Next.js page params are async
-  const provider = searchParams.get("provider");
+  const provider = searchParams.get("provider") || "github";
 
   if (provider !== "github") {
     return NextResponse.json({ error: "Provider not supported" }, { status: 400 });
@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
   }
 
   const scope = "repo,user";
-  const redirectUri = `${process.env.NEXT_PUBLIC_SITE_URL}/api/callback`;
+  const redirectUri = "https://rincones-bari.vercel.app/api/callback";
   const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&scope=${scope}&redirect_uri=${encodeURIComponent(redirectUri)}`;
 
   return NextResponse.redirect(githubAuthUrl);
