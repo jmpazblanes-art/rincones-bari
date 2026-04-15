@@ -5,14 +5,14 @@ export async function GET(request: NextRequest) {
   const code = searchParams.get("code");
 
   if (!code) {
-    return NextResponse.json({ error: "Missing code" }, { status: 400 });
+    return htmlResponse("error", "Missing code");
   }
 
   const clientId = process.env.GITHUB_CLIENT_ID;
   const clientSecret = process.env.GITHUB_CLIENT_SECRET;
 
   if (!clientId || !clientSecret) {
-    return NextResponse.json({ error: "Missing OAuth credentials" }, { status: 500 });
+    return htmlResponse("error", "Missing OAuth credentials");
   }
 
   try {
@@ -23,29 +23,48 @@ export async function GET(request: NextRequest) {
     });
 
     const tokenData = await tokenResponse.json();
-    if (tokenData.error) {
-      return NextResponse.json({ error: tokenData.error_description }, { status: 400 });
+
+    if (tokenData.error || !tokenData.access_token) {
+      return htmlResponse("error", tokenData.error_description || "OAuth failed");
     }
 
-    const token = tokenData.access_token;
-    const message = "authorization:github:success:" + JSON.stringify({ token, provider: "github" });
-
-    const html = [
-      "<!DOCTYPE html><html><body><script>",
-      "(function(){",
-      "  function receiveMessage(e){",
-      "    window.opener.postMessage(" + JSON.stringify(message) + ", e.origin);",
-      "  }",
-      "  window.addEventListener('message', receiveMessage, false);",
-      "  window.opener.postMessage('authorizing:github', '*');",
-      "})();",
-      "</script></body></html>",
-    ].join("\n");
-
-    return new NextResponse(html, {
-      headers: { "Content-Type": "text/html" },
-    });
+    return htmlResponse("success", tokenData.access_token);
   } catch {
-    return NextResponse.json({ error: "OAuth exchange failed" }, { status: 500 });
+    return htmlResponse("error", "OAuth exchange failed");
   }
+}
+
+function htmlResponse(status: "success" | "error", content: string) {
+  const message =
+    status === "success"
+      ? `authorization:github:success:${JSON.stringify({ token: content, provider: "github" })}`
+      : `authorization:github:error:${content}`;
+
+  const html = `<!DOCTYPE html>
+<html>
+<body>
+<script>
+(function() {
+  var message = ${JSON.stringify(message)};
+  function sendMessage() {
+    if (window.opener) {
+      window.opener.postMessage(message, "*");
+      setTimeout(function() { window.close(); }, 500);
+    }
+  }
+  if (document.readyState === "complete") {
+    sendMessage();
+  } else {
+    window.addEventListener("load", sendMessage);
+  }
+})();
+</script>
+<p>Autenticando... puedes cerrar esta ventana.</p>
+</body>
+</html>`;
+
+  return new NextResponse(html, {
+    status: 200,
+    headers: { "Content-Type": "text/html" },
+  });
 }
