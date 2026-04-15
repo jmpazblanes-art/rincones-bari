@@ -268,6 +268,8 @@ export default function HomePage() {
           muted
           loop
           playsInline
+          preload="auto"
+          poster="/images/salon/salon-decoracion-moderno-03.png"
           className="absolute inset-0 w-full h-full object-cover scale-105"
         >
           <source src="/video/rincones-bari-salon-video-01.mp4" type="video/mp4" />
