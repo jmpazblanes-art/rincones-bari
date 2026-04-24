@@ -16,8 +16,8 @@ async function isAuthed() {
 }
 
 export async function loginAction(formData: FormData) {
-  const password = String(formData.get("password") ?? "");
-  const expected = process.env.ADMIN_PASSWORD;
+  const password = String(formData.get("password") ?? "").trim();
+  const expected = (process.env.ADMIN_PASSWORD ?? "").trim();
 
   if (!expected) {
     return { error: "El servidor no tiene ADMIN_PASSWORD configurado." };
@@ -60,7 +60,7 @@ async function commitFile(params: {
   content: string;
   message: string;
 }) {
-  const token = process.env.GITHUB_TOKEN;
+  const token = (process.env.GITHUB_TOKEN ?? "").trim();
   if (!token) throw new Error("Falta GITHUB_TOKEN en el servidor.");
 
   const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${params.path}`;
