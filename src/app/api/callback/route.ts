@@ -35,36 +35,38 @@ export async function GET(request: NextRequest) {
 }
 
 function htmlResponse(status: "success" | "error", content: string) {
-  const message =
+  const payload =
     status === "success"
-      ? `authorization:github:success:${JSON.stringify({ token: content, provider: "github" })}`
-      : `authorization:github:error:${content}`;
+      ? JSON.stringify({ token: content, provider: "github" })
+      : JSON.stringify({ error: content });
+
+  const message = `authorization:github:${status}:${payload}`;
 
   const html = `<!DOCTYPE html>
 <html>
+<head><meta charset="utf-8"><title>Autenticando...</title></head>
 <body>
 <script>
 (function() {
   var message = ${JSON.stringify(message)};
-  function sendMessage() {
-    if (window.opener) {
-      window.opener.postMessage(message, "*");
-      setTimeout(function() { window.close(); }, 500);
-    }
+  function receiveMessage(e) {
+    if (!e.data || typeof e.data !== 'string') return;
+    if (e.data.indexOf('authorizing:github') !== 0) return;
+    if (!window.opener) return;
+    window.opener.postMessage(message, e.origin);
   }
-  if (document.readyState === "complete") {
-    sendMessage();
-  } else {
-    window.addEventListener("load", sendMessage);
+  window.addEventListener("message", receiveMessage, false);
+  if (window.opener) {
+    window.opener.postMessage("authorizing:github", "*");
   }
 })();
 </script>
-<p>Autenticando... puedes cerrar esta ventana.</p>
+<p style="font-family: sans-serif; text-align: center; margin-top: 40px;">Autenticando... puedes cerrar esta ventana si no se cierra sola.</p>
 </body>
 </html>`;
 
   return new NextResponse(html, {
     status: 200,
-    headers: { "Content-Type": "text/html" },
+    headers: { "Content-Type": "text/html; charset=utf-8" },
   });
 }
