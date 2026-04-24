@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
   }
 
   const scope = "repo,user";
-  const redirectUri = "https://rincones-bari.vercel.app/api/callback";
+  const redirectUri = "https://rincones-bari.vercel.app/admin";
   const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&scope=${scope}&redirect_uri=${encodeURIComponent(redirectUri)}`;
 
   return NextResponse.redirect(githubAuthUrl);
